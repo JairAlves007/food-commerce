@@ -10,7 +10,7 @@ interface RestaurantItemProps {
 
 const RestaurantItem = ({ restaurant }: RestaurantItemProps) => {
   return (
-    <div className="min-w-[266px] max-w-[266px] space-y-3">
+    <div className="min-w-[266px] max-w-[266px] space-y-3 transition-all hover:-translate-y-1 hover:cursor-pointer">
       <div className="relative h-[136px] w-full">
         <Image
           src={restaurant.imageUrl}
