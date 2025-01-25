@@ -1,7 +1,8 @@
 import { Prisma } from "@prisma/client";
+import { ConvertDecimalToNumber } from "./decimal-to-number";
 
-export interface ProductItemProps {
-  product: Prisma.ProductGetPayload<{
+export type ProductItemType = ConvertDecimalToNumber<
+  Prisma.ProductGetPayload<{
     include: {
       restaurant: {
         select: {
@@ -9,5 +10,5 @@ export interface ProductItemProps {
         };
       };
     };
-  }>;
-}
+  }>
+>;
