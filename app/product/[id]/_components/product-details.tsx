@@ -34,7 +34,7 @@ const ProductDetails = ({
     });
 
   return (
-    <>
+    <div className="relative z-50 -mt-3 rounded-tl-lg rounded-tr-lg bg-background">
       <div className="p-5">
         <div className="flex items-center gap-[0.375rem]">
           <div className="relative h-6 w-6">
@@ -131,7 +131,7 @@ const ProductDetails = ({
         </h3>
         <ProductsList products={complementaryProducts} />
       </div>
-    </>
+    </div>
   );
 };
 
