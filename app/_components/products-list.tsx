@@ -1,17 +1,5 @@
-import { Prisma } from "@prisma/client";
+import { ProductsListProps } from "../_types/product-list";
 import ProductItem from "./product-item";
-
-interface ProductsListProps {
-  products: Prisma.ProductGetPayload<{
-    include: {
-      restaurant: {
-        select: {
-          name: true;
-        };
-      };
-    };
-  }>[];
-}
 
 const ProductsList = ({ products }: ProductsListProps) => {
   return (
