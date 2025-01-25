@@ -29,6 +29,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
         id: {
           not: id,
         },
+        restaurantId: product.restaurantId,
         category: {
           id: product.categoryId,
         },
