@@ -4,32 +4,12 @@ import Search from "./_components/search";
 import ProductsList from "./_components/products-list";
 import { Button } from "./_components/ui/button";
 import { ChevronRightIcon } from "lucide-react";
-import { db } from "./_lib/prisma";
 import PromoBanner from "./_components/promo-banner";
 import RestaurantsList from "./_components/restaurants-list";
+import { getLimitedProductsWithDiscount } from "./_services/product";
 
 const Home = async () => {
-  const products = (
-    await db.product.findMany({
-      where: {
-        discountPercentage: {
-          gt: 0,
-        },
-      },
-      take: 10,
-      include: {
-        restaurant: {
-          select: {
-            name: true,
-          },
-        },
-      },
-      distinct: ["imageUrl"],
-    })
-  ).map((product) => ({
-    ...product,
-    price: Number(product.price),
-  }));
+  const products = await getLimitedProductsWithDiscount(10);
 
   return (
     <>
