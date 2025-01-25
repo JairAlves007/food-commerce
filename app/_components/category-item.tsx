@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CategoryItemProps } from "../_types/category-item";
+import { CategoryItemProps } from "../_interfaces/category-item";
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
   return (

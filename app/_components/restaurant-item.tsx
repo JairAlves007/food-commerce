@@ -2,7 +2,7 @@ import { BikeIcon, HeartIcon, StarIcon, TimerIcon } from "lucide-react";
 import Image from "next/image";
 import { formatCurrency } from "../_helpers/price";
 import { Button } from "./ui/button";
-import { RestaurantItemProps } from "../_types/restaurant-item";
+import { RestaurantItemProps } from "../_interfaces/restaurant-item";
 
 const RestaurantItem = ({ restaurant }: RestaurantItemProps) => {
   return (

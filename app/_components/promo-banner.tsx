@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PromoBannerProps } from "../_types/promo-banner";
+import { PromoBannerProps } from "../_interfaces/promo-banner";
 
 const PromoBanner = ({ source, alt }: PromoBannerProps) => {
   return (

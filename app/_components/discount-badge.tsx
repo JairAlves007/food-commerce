@@ -1,5 +1,5 @@
 import { ArrowDownIcon } from "lucide-react";
-import { DiscountBadgeProps } from "../_types/discount-badge";
+import { DiscountBadgeProps } from "../_interfaces/discount-badge";
 
 const DiscountBadge = ({
   product: { discountPercentage },
@@ -8,7 +8,7 @@ const DiscountBadge = ({
 }: DiscountBadgeProps) => {
   return (
     <div
-      className={`flex items-center gap-[2px] rounded-full bg-primary text-white ${className}`}
+      className={`flex items-center gap-[2px] rounded-full bg-primary px-2 py-1 text-white ${className}`}
       {...rest}
     >
       <ArrowDownIcon size={16} />

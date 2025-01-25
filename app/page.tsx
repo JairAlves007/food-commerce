@@ -9,22 +9,27 @@ import PromoBanner from "./_components/promo-banner";
 import RestaurantsList from "./_components/restaurants-list";
 
 const Home = async () => {
-  const products = await db.product.findMany({
-    where: {
-      discountPercentage: {
-        gt: 0,
-      },
-    },
-    take: 10,
-    include: {
-      restaurant: {
-        select: {
-          name: true,
+  const products = (
+    await db.product.findMany({
+      where: {
+        discountPercentage: {
+          gt: 0,
         },
       },
-    },
-    distinct: ["imageUrl"],
-  });
+      take: 10,
+      include: {
+        restaurant: {
+          select: {
+            name: true,
+          },
+        },
+      },
+      distinct: ["imageUrl"],
+    })
+  ).map((product) => ({
+    ...product,
+    price: Number(product.price),
+  }));
 
   return (
     <>
@@ -50,7 +55,9 @@ const Home = async () => {
           </Button>
         </div>
 
-        <ProductsList products={products} />
+        <div className="pl-5">
+          <ProductsList products={products} />
+        </div>
       </div>
 
       <div className="px-5 pt-6">
