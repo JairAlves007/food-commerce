@@ -9,6 +9,7 @@ import {
   formatCurrency,
 } from "@/app/_helpers/price";
 import { ProductDetailsProps } from "@/app/_interfaces/product-details";
+import { cx } from "class-variance-authority";
 import {
   BikeIcon,
   ChevronLeftIcon,
@@ -78,8 +79,11 @@ const ProductDetails = ({
           <div className="flex items-center gap-3 text-center">
             <Button
               size="icon"
-              variant="ghost"
-              className="border border-solid border-muted-foreground"
+              variant={quantity <= 1 ? "ghost" : "default"}
+              className={cx(
+                "",
+                quantity <= 1 && "border border-solid border-muted-foreground",
+              )}
               onClick={handleDecreaseQuantity}
             >
               <ChevronLeftIcon />
